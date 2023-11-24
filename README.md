@@ -21,4 +21,4 @@ Cheat sheet v1.25.0 | Aug 2023 | Daniel Lewis
 with a line break on the bottom
 
 graph - data vis!
-everything a unimelb student has every wanted to know about their WAM 
+An intuitive WAM calculator, with screenshot and extra statistic functionality
