@@ -17,7 +17,6 @@ Anonymised, simple and accurate
 Someone finally did it. They made a WAM calculator that works
 Drop feature requests
 
-Cheat sheet v1.25.0 | Aug 2023 | Daniel Lewis
 with a line break on the bottom
 
 graph - data vis!

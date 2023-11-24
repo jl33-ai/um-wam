@@ -7,11 +7,10 @@ import numpy as np
 import re
 
 from streamlit_echarts import st_echarts
-import matplotlib.pyplot as plt
 
 
 
-st.set_page_config(layout="wide", page_title="UniMelb WAM Calculator")
+st.set_page_config(layout="wide", page_title="University WAM Calculator")
 
 st.write("## Calculate your Weighted Average Mark (WAM)")
 
@@ -194,22 +193,6 @@ def calculate_stats(grades):
 
     return freq_dict, maximum_g, minimum_g
 
-def create_pictorial_bar_graph(data):
-    fig, ax = plt.subplots()
-    
-    # Custom marker (can be replaced with an image)
-    marker = '$\u25AE$'  # A rectangle shape
-    
-    for i, (category, value) in enumerate(data.items()):
-        ax.scatter([i] * value, np.arange(value), marker=marker, s=200)
-    
-    # Setting the category names as x-ticks
-    plt.xticks(range(len(data)), list(data.keys()))
-
-    # Remove y-axis for simplicity
-    plt.yticks([])
-
-    return fig
 
     
 def plot_progression():
