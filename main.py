@@ -3,7 +3,7 @@ from streamlit_echarts import st_echarts
 
 
 
-st.set_page_config(layout="wide", page_title="University WAM Calculator")
+st.set_page_config(page_title="University WAM Calculator")
 
 st.write("## Calculate your Weighted Average Mark (WAM)")
 
@@ -75,6 +75,8 @@ st.markdown("---")
 
 # EXTRAS 
 
+st.write('### Extra tools:')
+
 def slider_app(current_wam, num_completed):
     desired_wam = st.slider("Desired WAM", 50, 100, 75)
     remaining_subjects = st.number_input("Number of Remaining Subjects (You may go above 24)", min_value=1, value=(24-num_completed))
@@ -139,7 +141,7 @@ if 'button_pressed' not in st.session_state:
 
 # Button to reveal the slider
 num_completed = len(st.session_state.grades)
-if st.button('▸   Calculate grades needed for desired WAM'):
+if st.button('🧪 Calculate grades needed for desired WAM'):
     if num_completed:
         st.session_state.button_pressed = True
     else: 
@@ -259,13 +261,13 @@ def render_basic_area_chart(grades):
     st.markdown('---')
 
 
-if st.button('▸   View Extra Statistics'):
+if st.button('🧮 View Extra Statistics'):
     if not num_completed:
         st.write('Please add at least one subject first')
     else:
         render_basic_radar(st.session_state.grades)
 
-if st.button('▸   View Progress over Time'):
+if st.button('📊 View WAM over Time'):
     if not num_completed:
         st.write('Please add at least one subject first')
     else:
