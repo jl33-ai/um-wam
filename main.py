@@ -28,7 +28,7 @@ st.sidebar.markdown("☞ [Feature request/bug form](https://forms.gle/fHL4pfrdrj
 st.sidebar.markdown("\n\n")
 st.sidebar.markdown('---')
 st.sidebar.markdown('[UM-WC v1.0.1]() | Nov 2023')
-st.sidebar.markdown('[Justin Lee 🐲]()')
+st.sidebar.markdown('[Justin Lee 🐯]()')
 
 
 
@@ -141,7 +141,7 @@ if 'button_pressed' not in st.session_state:
 
 # Button to reveal the slider
 num_completed = len(st.session_state.grades)
-if st.button('🧪 Calculate grades needed for desired WAM'):
+if st.button('🧪 - Calculate grades needed for desired WAM'):
     if num_completed:
         st.session_state.button_pressed = True
     else: 
@@ -261,13 +261,13 @@ def render_basic_area_chart(grades):
     st.markdown('---')
 
 
-if st.button('🧮 View Extra Statistics'):
+if st.button('🧮 - View Extra Statistics'):
     if not num_completed:
         st.write('Please add at least one subject first')
     else:
         render_basic_radar(st.session_state.grades)
 
-if st.button('📊 View WAM over Time'):
+if st.button('📊 - View WAM over Time'):
     if not num_completed:
         st.write('Please add at least one subject first')
     else:
