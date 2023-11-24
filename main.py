@@ -82,7 +82,7 @@ st.markdown("---")
 
 # EXTRAS 
 
-st.write('### Extra tools:')
+st.write('### More tools:')
 
 def slider_app(current_wam, num_completed):
     desired_wam = st.slider("Desired WAM", 50, 100, 75)
