@@ -26,6 +26,8 @@ st.sidebar.markdown('---')
 
 st.sidebar.write("☞ Never include **subject codes** or your **studentID**")
 st.sidebar.write("☞ This site is fully **anonymous, secure and self contained**")
+st.sidebar.markdown("☞ [Feature request/Bug form](https://forms.gle/fHL4pfrdrjcWZeVVA)")
+
 
 st.sidebar.markdown("\n\n")
 st.sidebar.markdown('---')
@@ -83,7 +85,7 @@ def slider_app(current_wam, num_completed):
     if remaining_subjects > 0:
         total_subjects = num_completed + remaining_subjects
         required_average = ((desired_wam * total_subjects) - (current_wam * num_completed)) / remaining_subjects
-        st.markdown(f"### Average score needed in remaining subjects to achieve a WAM of {desired_wam}: **`{required_average:.2f}`**")
+        st.markdown(f"### Average score needed to achieve a WAM of {desired_wam}: **`{required_average:.2f}`**")
     else:
         st.write("Please enter the number of completed subjects and remaining subjects.")
 
