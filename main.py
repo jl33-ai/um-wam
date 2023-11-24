@@ -58,8 +58,8 @@ def remove_grade():
     
 
 
-add_button = st.button('Add Grade', on_click=add_grade)
-remove_button = st.button('Remove Grade', on_click=remove_grade)
+add_button = st.button(' Add Subject  ', on_click=add_grade)
+remove_button = st.button('Remove Subject', on_click=remove_grade)
 
 
 
