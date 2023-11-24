@@ -71,10 +71,10 @@ def calculate_wam(grades):
     return wam
 
 if not st.session_state.grades: 
-    st.markdown(f"### Your WAM: **`{0.000:.3f}`**")
+    st.markdown(f"### Your current WAM: **`{0.000:.3f}`**")
 else: 
     wam = calculate_wam(st.session_state.grades)
-    st.markdown(f"### Your WAM: **`{wam:.3f}`**")
+    st.markdown(f"### Your current WAM: **`{wam:.3f}`**")
 
 st.markdown("---")
 
