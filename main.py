@@ -27,7 +27,6 @@ st.sidebar.markdown("☞ [Feature request/bug form](https://forms.gle/fHL4pfrdrj
 
 st.sidebar.markdown("\n\n")
 st.sidebar.markdown('---')
-st.sidebar.markdown('Free Palestine 🇵🇸')
 st.sidebar.markdown('[UM-WC v1.0.1]() | Nov 2023')
 st.sidebar.markdown('[Justin Lee 🐲]()')
 
