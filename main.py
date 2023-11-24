@@ -14,7 +14,7 @@ st.write("## Calculate your Weighted Average Mark (WAM)")
 
 # initialize a session state for grades
 if 'grades' not in st.session_state:
-    st.session_state.grades = []
+    st.session_state.grades = [{'grade': 50, 'credit_points': 12.5}]
 
 
 st.sidebar.markdown("### How Your WAM is Calculated")
