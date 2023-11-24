@@ -35,8 +35,11 @@ def to_list(grade_str):
 def populate_grades(grade_list):
     """ Clears the current list and populates it with new grades. """
     st.session_state.grades.clear()
-    for i, grade in enumerate(grade_list):
+    for _, grade in enumerate(grade_list):
         st.session_state.grades.append({'grade': int(grade), 'credit_points': 12.5})
+    if 'upload_widget' in st.session_state:
+        st.session_state.upload_widget = False
+    st.experimental_rerun()
 
 def extract_grades(my_upload):
     """ Extracts grades from columnar screenshot and populates the table. """
@@ -54,15 +57,16 @@ def extract_grades(my_upload):
             # Populate the grades
             populate_grades(grade_list)
 
+# Intialise session states
 
-
-
-
-
-
-# initialize a session state for grades
 if 'grades' not in st.session_state:
     st.session_state.grades = [{'grade': 50, 'credit_points': 12.5}]
+
+if 'button_pressed' not in st.session_state:
+    st.session_state.button_pressed = False
+
+if 'upload_widget' not in st.session_state:
+    st.session_state.upload_widget = False
 
 
 st.sidebar.markdown("### How your WAM is calculated")
@@ -72,7 +76,6 @@ st.sidebar.markdown("Where `n` is the number of subjects you have completed so f
 st.sidebar.markdown("\n\n")
 st.sidebar.markdown('---')
 
-st.sidebar.write("☞ Never include **subject codes** or your **studentID**")
 st.sidebar.write("☞ This site is fully **anonymous, secure and self contained**")
 st.sidebar.markdown("☞ [Feature request/bug form](https://forms.gle/fHL4pfrdrjcWZeVVA)")
 
@@ -124,11 +127,11 @@ with st.container():
         add_button = st.button('Add Subject', on_click=add_grade)
 
     with remove_button:
-        remove_button = st.button('Remove Subject', on_click=remove_grade)
+        remove_button = st.button('Add Pass/Fail Subject', on_click=add_passfail)
 
     with passfail_button:
-        passfail_button = st.button('Add Pass/Fail Subject', on_click=add_passfail)
-
+        passfail_button = st.button('Remove Subject', on_click=remove_grade)
+        
 #add_button = st.button(' Add Subject  ', on_click=add_grade)
 #remove_button = st.button('Remove Subject', on_click=remove_grade)
 #passfail_button = st.button('Add Pass/Fail Subject', on_click=add_passfail)
@@ -153,7 +156,8 @@ st.markdown("---")
 
 # EXTRAS 
 
-st.write('### More tools:')
+st.write('## More tools:')
+#st.write('🧪🧮📊🎰📷')
 
 def slider_app(current_wam, num_completed):
     desired_wam = st.slider("Desired WAM", 50, 100, 75)
@@ -212,14 +216,10 @@ def plot_progression():
 # You need to maintain an average of: in your remaining subjects 
 
 
-# Add additional conditions for more options
-# Initialize session state for button press
-if 'button_pressed' not in st.session_state:
-    st.session_state.button_pressed = False
 
 # Button to reveal the slider
 num_completed = len(st.session_state.grades)
-if st.button('🧪 - Calculate grades needed for desired WAM'):
+if st.button('Calculate grades needed for desired WAM'):
     if num_completed:
         st.session_state.button_pressed = True
     else: 
@@ -287,12 +287,17 @@ def render_basic_radar(grades):
             ],
         }
         st_echarts(option, height="500px")
-    st.markdown('---')
+
+    render_basic_area_chart(grades)
+    #st.markdown('---')
 
 
 def render_basic_area_chart(grades):
-    wam, _ = calculate_wam(grades[:i+1])
-    data = [int(wam) for i in range(len(grades))]
+    data = []
+    for i in range(len(grades)):
+        wam, _ = calculate_wam(grades[:i+1])
+        data.append(int(wam))
+
 
     # Determine the min and max values for the y-axis
     min_value = min(data) - 5
@@ -335,35 +340,54 @@ def render_basic_area_chart(grades):
             }
         ],
     }
-    st.write('# Your WAM over time')
+    st.write('### Your WAM over time')
     st_echarts(options=options, height="500px")
     st.markdown('---')
 
 
-if st.button('🧮 - View Extra Statistics'):
+if st.button('Stats for Nerds'):
     if not num_completed:
         st.write('Please add at least one subject first')
     else:
         render_basic_radar(st.session_state.grades)
 
-if st.button('📊 - View WAM over Time'):
-    if not num_completed:
-        st.write('Please add at least one subject first')
-    else:
-        render_basic_area_chart(st.session_state.grades)
+#if st.button('View WAM over Time'):
+#    if not num_completed:
+#        st.write('Please add at least one subject first')
+#    else:
+#        render_basic_area_chart(st.session_state.grades)
     
     
 
-if st.button('📷 - Autofill from Screenshot'):
+def autofill_callback():
+    extract_grades(my_upload)
+
+
+
+if st.button('Autofill from Screenshot'):
+    st.session_state.upload_widget = True
+    
+if st.session_state.upload_widget:
     my_upload = st.file_uploader("📄 Upload a screenshot of ONLY your grades column", type=["png", "jpg", "jpeg"])
-    st.image('demo3.gif')
-    if my_upload:
-        extract_grades(my_upload)
+    st.markdown('---')
+    mcol1, mcol2 = st.columns([1, 2])
+    with mcol1:
+        st.write('#### How to submit')
+        st.write("☞ Never include **subject codes** or your **studentID**")
+        st.write("☞ Your screenshot should include only the 'marks' column as shown")
+        st.write("☞ Warning: Autofilling will **overwrite all current grades**")
+    with mcol2:
+        st.image('demo4.gif')
+    if st.button('Autofill'):
+        if my_upload:
+            autofill_callback()
+        else:
+            st.write('Please upload a correct file first')
 
     st.markdown('---')
 
 
-if st.button('🎰 - Exam Weighting Calculator'):
+if st.button('Exam Weighting Calculator'):
     st.write('Work in Progress...')
     st.markdown('---')
 
