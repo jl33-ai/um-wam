@@ -1,11 +1,63 @@
 import streamlit as st
 from streamlit_echarts import st_echarts
 
-
+import requests
+from io import BytesIO
+import re
 
 st.set_page_config(page_title="University WAM Calculator")
 
 st.write("## Calculate your Weighted Average Mark (WAM)")
+
+
+MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
+
+# Define your OCR.space API key here
+API_KEY = 'K85283192788957'
+
+def ocr_space_file(file_stream, api_key, language='eng'):
+    """ OCR.space API request with file stream. """
+    payload = {
+        'apikey': api_key,
+        'language': language,
+    }
+    response = requests.post(
+        'https://api.ocr.space/parse/image',
+        files={file_stream.name: file_stream},
+        data=payload,
+    )
+    return response.json()
+
+def to_list(grade_str):
+    """ Uses regex to find all numbers in the OCR result string. """
+    return re.findall(r'\d+', grade_str)
+
+def populate_grades(grade_list):
+    """ Clears the current list and populates it with new grades. """
+    st.session_state.grades.clear()
+    for i, grade in enumerate(grade_list):
+        st.session_state.grades.append({'grade': int(grade), 'credit_points': 12.5})
+
+def extract_grades(my_upload):
+    """ Extracts grades from columnar screenshot and populates the table. """
+    if my_upload is not None:
+        if my_upload.size > MAX_FILE_SIZE:
+            st.error("The uploaded screenshot is too large. Please upload an image smaller than 5MB.")
+        else:
+            # Perform OCR using OCR.space API
+            ocr_result = ocr_space_file(my_upload, API_KEY)
+            ocr_text = ocr_result.get('ParsedResults')[0].get('ParsedText')
+
+            # REGEX step to extract grades
+            grade_list = to_list(ocr_text)
+
+            # Populate the grades
+            populate_grades(grade_list)
+
+
+
+
+
 
 
 # initialize a session state for grades
@@ -31,14 +83,16 @@ st.sidebar.markdown('[UM-WC v1.0.1]() | Nov 2023')
 st.sidebar.markdown('[Justin Lee 🐯]()')
 
 
-
 col1, col2 = st.columns(2)
 
 # dynamically display the grade and credit points inputs
 for i, grade_info in enumerate(st.session_state['grades']):
     with col1:
         # Create a number input for grade, unique key is necessary for each input
-        st.session_state['grades'][i]['grade'] = st.number_input(f'Subject {i+1}', value=grade_info['grade'], key=f'grade_{i}', min_value=0, max_value=100)
+        if grade_info['grade'] == 0: 
+            st.text_input(f'Subject {i+1}', value='Pass/Fail', key=f'grade_{i}')
+        else: 
+            st.session_state['grades'][i]['grade'] = st.number_input(f'Subject {i+1}', value=grade_info['grade'], key=f'grade_{i}', min_value=0, max_value=100)
     with col2:
         # Create a number input for credit points, unique key is necessary for each input
         st.session_state['grades'][i]['credit_points'] = st.number_input(f'Credit Points', value=grade_info['credit_points'], key=f'credit_{i}')
@@ -55,26 +109,43 @@ def add_grade():
 def remove_grade():
     if len(st.session_state.grades) > 1:
         st.session_state.grades.pop()
+
+def add_passfail():
+    st.session_state.grades.append({'grade': 0, 'credit_points': 12.5})
     
 
 
-add_button = st.button(' Add Subject  ', on_click=add_grade)
-remove_button = st.button('Remove Subject', on_click=remove_grade)
+with st.container():
+    # Create a horizontal layout
+    add_button, remove_button, passfail_button = st.columns([1, 1, 1])
 
+    # Place each button in its respective column
+    with add_button:
+        add_button = st.button('Add Subject', on_click=add_grade)
 
+    with remove_button:
+        remove_button = st.button('Remove Subject', on_click=remove_grade)
 
-# st.write('## Results')
+    with passfail_button:
+        passfail_button = st.button('Add Pass/Fail Subject', on_click=add_passfail)
+
+#add_button = st.button(' Add Subject  ', on_click=add_grade)
+#remove_button = st.button('Remove Subject', on_click=remove_grade)
+#passfail_button = st.button('Add Pass/Fail Subject', on_click=add_passfail)
+
 
 def calculate_wam(grades):
-    all_credit = sum(g['credit_points'] for g in grades)
+    tot_credit = sum(g['credit_points'] for g in grades)
+    all_credit = sum(g['credit_points'] for g in grades if g['grade'] > 0)
     wam = sum([g['grade']*(g['credit_points']/all_credit) for g in grades]) if grades else 0
-    return wam
+    return wam, tot_credit
 
 if not st.session_state.grades: 
     st.markdown(f"### Your current WAM: **`{0.000:.3f}`**")
 else: 
-    wam = calculate_wam(st.session_state.grades)
+    wam, tot_credit = calculate_wam(st.session_state.grades)
     st.markdown(f"### Your current WAM: **`{wam:.3f}`**")
+    st.write(f'**Total credit points:** `{tot_credit}`')
 
 st.markdown("---")
 
@@ -94,7 +165,7 @@ def slider_app(current_wam, num_completed):
     else:
         st.write("Please enter the number of completed subjects and remaining subjects.")
 
-    st.markdown("---")
+    st.markdown("---") #sexy+code(R) -
 
 def get_grade(g):
     if g >= 80:
@@ -156,7 +227,7 @@ if st.button('🧪 - Calculate grades needed for desired WAM'):
 
 # Check if the button has been pressed
 if st.session_state.button_pressed:
-    current_wam = calculate_wam(st.session_state.grades) # Replace with your actual function to calculate WAM
+    current_wam, _ = calculate_wam(st.session_state.grades) # Replace with your actual function to calculate WAM
     slider_app(current_wam, num_completed)
         
 
@@ -181,7 +252,7 @@ def render_basic_radar(grades):
         st.markdown(f'##### `{gmax}`')
         st.markdown('#### Your lowest grade:')
         st.markdown(f'##### `{gmin}`')
-        st.write("Don't worry, it happens :)")
+        st.markdown("*Don't worry, it happens :)*")
 
     with col2:
         option = {
@@ -220,7 +291,8 @@ def render_basic_radar(grades):
 
 
 def render_basic_area_chart(grades):
-    data = [int(calculate_wam(grades[:i+1])) for i in range(len(grades))]
+    wam, _ = calculate_wam(grades[:i+1])
+    data = [int(wam) for i in range(len(grades))]
 
     # Determine the min and max values for the y-axis
     min_value = min(data) - 5
@@ -279,5 +351,20 @@ if st.button('📊 - View WAM over Time'):
         st.write('Please add at least one subject first')
     else:
         render_basic_area_chart(st.session_state.grades)
+    
+    
+
+if st.button('📷 - Autofill from Screenshot'):
+    my_upload = st.file_uploader("📄 Upload a screenshot of ONLY your grades column", type=["png", "jpg", "jpeg"])
+    st.image('demo3.gif')
+    if my_upload:
+        extract_grades(my_upload)
+
+    st.markdown('---')
+
+
+if st.button('🎰 - Exam Weighting Calculator'):
+    st.write('Work in Progress...')
+    st.markdown('---')
 
 # Leave a comment!
