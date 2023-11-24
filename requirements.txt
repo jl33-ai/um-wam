@@ -1,6 +1,2 @@
 streamlit
-Pillow
-opencv-python-headless
-pytesseract
-numpy
 streamlit-echarts

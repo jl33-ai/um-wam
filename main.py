@@ -1,8 +1,4 @@
 import streamlit as st
-from io import BytesIO
-import cv2
-import numpy as np
-import re
 from streamlit_echarts import st_echarts
 
 
@@ -17,7 +13,7 @@ if 'grades' not in st.session_state:
     st.session_state.grades = [{'grade': 50, 'credit_points': 12.5}]
 
 
-st.sidebar.markdown("### How Your WAM is Calculated")
+st.sidebar.markdown("### How your WAM is calculated")
 st.sidebar.markdown("See the official [University of Melbourne website](https://students.unimelb.edu.au/your-course/manage-your-course/exams-assessments-and-results/results-and-academic-statements/wam#:~:text=It%20is%20calculated%20progressively%20as,subject%20in%20calculating%20your%20WAM.) for more details.")
 st.sidebar.latex(r"\sum_{i=1}^{n} \frac{c_i}{c_{tot}} \times g_i")
 st.sidebar.markdown("Where `n` is the number of subjects you have completed so far, `c_i` is the credit points for subject `i`, and `g_i` is the grade for subject `i`.")
