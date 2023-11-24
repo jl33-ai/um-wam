@@ -1,17 +1,13 @@
 # um-wam
 Anonymised, simple and accurate
 
-
-
 # Todo
-- [ ] Simple anonymised image 
-- [ ] Warning messagae
+- [x] Simple anonymised image 
+- [x] Warning messagae
 
-
-- [ ] Enter number of subjects you have left: 
-- [ ] Enter desired wam: 
-- [ ] You need to average ()
-- [ ] 
+- [x] Enter number of subjects you have left: 
+- [x] Enter desired wam: 
+- [x] You need to average () 
 
 
 Someone finally did it. They made a WAM calculator that works

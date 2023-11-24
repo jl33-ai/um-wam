@@ -80,21 +80,29 @@ def extract_grades(my_upload):
 
 
 st.sidebar.write("# Autofill from Screenshot")
-my_upload = st.sidebar.file_uploader("📄 Upload a screenshot of your grades:", type=["png", "jpg", "jpeg"])
+my_upload = st.sidebar.file_uploader("📄 Upload a screenshot of ONLY your grades column", type=["png", "jpg", "jpeg"])
+
+
+
+#st.sidebar.image('demo3.gif')
+def load_svg(svg_file):
+    with open(svg_file, "r") as file:
+        return file.read()
+
+svg = load_svg("demo.svg")
+
+st.sidebar.markdown(svg, unsafe_allow_html=True)
+
+st.sidebar.write("☞ Never include **subject codes** or your **studentID**")
+st.sidebar.write("☞ This site is fully **anonymous, secure and self contained**")
+st.sidebar.write('☞ **Warning**: this will clear all current grades')
+
 
 def autofill_callback():
     extract_grades(my_upload)
 
-if st.sidebar.button('Autofill'):
+if st.sidebar.button('Autofill Now'):
     autofill_callback()
-
-st.sidebar.image('demo3.gif')
-
-
-st.sidebar.write("☞ Never include **subject codes** or your **studentID**")
-st.sidebar.write('☞ **Warning**: this will clear all current grades')
-st.sidebar.markdown("☞ This site is 100% private and self contained")
-
 
 st.sidebar.markdown("\n\n")
 st.sidebar.markdown("---")  
@@ -105,7 +113,8 @@ st.sidebar.latex(r"\sum_{i=1}^{n} c_i \times g_i")
 st.sidebar.markdown("Where `n` is the number of subjects you have completed so far, `c_i` is the credit points for subject `i`, and `g_i` is the grade for subject `i`.")
 st.sidebar.markdown("\n\n")
 st.sidebar.markdown('---')
-st.sidebar.markdown('[UM-WC v1.0.1]() | Nov 2023 | [🐲 Justin Lee](https://jlees-blog.webflow.io)')
+st.sidebar.markdown('[UM-WC v1.0.1]() | Nov 2023')
+st.sidebar.markdown('Made by [🐲 Justin Lee](https://jlees-blog.webflow.io)')
 
 
 
@@ -216,7 +225,7 @@ if 'button_pressed' not in st.session_state:
 
 # Button to reveal the slider
 num_completed = len(st.session_state.grades)
-if st.button('Calculate grades needed for desired WAM'):
+if st.button('▸  Calculate grades needed for desired WAM'):
     if num_completed:
         st.session_state.button_pressed = True
     else: 
@@ -277,7 +286,7 @@ def render_basic_radar(grades):
                         {
                             "value": g_data,
                             "name": "Grades by Title",
-                            "areaStyle": {"color": "#FFD700"}
+                            "areaStyle": {"color": "#87d068"}
                         }
                     ],
                 }
@@ -336,17 +345,16 @@ def render_basic_area_chart(grades):
     st.markdown('---')
 
 
-if st.button('View Extra Statistics'):
-    #bcol1, bcol2 = 
-    # best and worst subject 
-    # Grade Type
-    # progression over time
-    #data = calculate_stats(st.session_state.grades)
-    #fig = create_pictorial_bar_graph(data)
-    #st.pyplot(fig)
-    render_basic_radar(st.session_state.grades)
+if st.button('▸  View Extra Statistics'):
+    if not num_completed:
+        st.write('Please add at least one subject first')
+    else:
+        render_basic_radar(st.session_state.grades)
 
-if st.button('View Progress over Time'):
-    render_basic_area_chart(st.session_state.grades)
+if st.button('▸  View Progress over Time'):
+    if not num_completed:
+        st.write('Please add at least one subject first')
+    else:
+        render_basic_area_chart(st.session_state.grades)
 
 # Leave a comment!
