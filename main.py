@@ -46,13 +46,20 @@ for i, grade_info in enumerate(st.session_state['grades']):
 # display the current state of grades (debug)
 # st.write('Current Grades:', st.session_state['grades'])
 
+ucol1, ucol2 = st.columns([1, 2])
+
 # function to add a grade entry
 def add_grade():
     st.session_state.grades.append({'grade': 50, 'credit_points': 12.5})
-    
-# button to add a grade entry
-st.button('Add Grade', on_click=add_grade)
 
+def remove_grade():
+    if len(st.session_state.grades) > 1:
+        st.session_state.grades.pop()
+    
+
+
+add_button = st.button('Add Grade', on_click=add_grade)
+remove_button = st.button('Remove Grade', on_click=remove_grade)
 
 
 
