@@ -182,11 +182,13 @@ def get_grade(g):
         return 'H3'
     elif g >= 50:
         return 'P'
+    elif g == 0:
+        return '*'
     else:
         return 'N'
 
 def calculate_stats(grades):
-    freq_dict = {'H1' : 0, 'H2A' : 0, 'H2B' : 0, 'H3' : 0, 'P' : 0, 'N' : 0}
+    freq_dict = {'H1' : 0, 'H2A' : 0, 'H2B' : 0, 'H3' : 0, 'P' : 0, 'N' : 0, '*' : 0}
     maximum_g = 0
     minimum_g = 100
 
@@ -269,6 +271,7 @@ def render_basic_radar(grades):
                     {"name": "H3", "max": maximum},
                     {"name": "P", "max": maximum},
                     {"name": "N", "max": maximum},
+                    {"name": "*", "max": maximum}
                 ],
                 "splitNumber": 5
             },
@@ -371,6 +374,11 @@ if st.session_state.upload_widget:
     my_upload = st.file_uploader("📄 Upload a screenshot of ONLY your grades column", type=["png", "jpg", "jpeg"])
     st.markdown('---')
     mcol1, mcol2 = st.columns([1, 2])
+    if st.button('Autofill'):
+        if my_upload:
+            autofill_callback()
+        else:
+            st.write('Please upload a correct file first')
     with mcol1:
         st.write('#### How to submit')
         st.write("☞ Never include **subject codes** or your **studentID**")
@@ -378,11 +386,7 @@ if st.session_state.upload_widget:
         st.write("☞ Warning: Autofilling will **overwrite all current grades**")
     with mcol2:
         st.image('demo4.gif')
-    if st.button('Autofill'):
-        if my_upload:
-            autofill_callback()
-        else:
-            st.write('Please upload a correct file first')
+    
 
     st.markdown('---')
 
