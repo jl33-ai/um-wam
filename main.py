@@ -391,8 +391,8 @@ if st.session_state.upload_widget:
     st.markdown('---')
 
 
-if st.button('Exam Weighting Calculator'):
-    st.write('Work in Progress...')
-    st.markdown('---')
+# if st.button('Exam Weighting Calculator'):
+#     st.write('Work in Progress...')
+#     st.markdown('---')
 
-# Leave a comment!
+# I'm so tired
