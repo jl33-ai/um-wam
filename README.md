@@ -1,6 +1,12 @@
 # um-wam
 Anonymised, simple and accurate
 
+**Special features**: 
+- Autofill from screenshot 
+- Infer grades needed for future WAM 
+- Statistics and analytics
+- Exam weighting calculator
+
 # Todo
 - [x] Simple anonymised image 
 - [x] Warning messagae
@@ -9,11 +15,10 @@ Anonymised, simple and accurate
 - [x] Enter desired wam: 
 - [x] You need to average () 
 
+- [x] Someone finally did it. They made a WAM calculator that works
+- [x] Drop feature requests
 
-Someone finally did it. They made a WAM calculator that works
-Drop feature requests
+- [x] with a line break on the bottom
 
-with a line break on the bottom
-
-graph - data vis!
-An intuitive WAM calculator, with screenshot and extra statistic functionality
+- [x] graph - data vis!
+- [x] An intuitive WAM calculator, with screenshot and extra statistic functionality
