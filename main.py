@@ -6,9 +6,7 @@ import requests
 from io import BytesIO
 import re
 
-with streamlit_analytics.track():
-    st.text_input("Write something")
-    st.button("Click me")
+streamlit_analytics.start_tracking()
 
 st.set_page_config(page_title="University WAM Calculator")
 
@@ -401,3 +399,4 @@ if st.session_state.upload_widget:
 #     st.markdown('---')
 
 # I'm so tired
+streamlit_analytics.stop_tracking()
