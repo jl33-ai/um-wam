@@ -1,9 +1,14 @@
 import streamlit as st
 from streamlit_echarts import st_echarts
+import streamlit_analytics
 
 import requests
 from io import BytesIO
 import re
+
+with streamlit_analytics.track():
+    st.text_input("Write something")
+    st.button("Click me")
 
 st.set_page_config(page_title="University WAM Calculator")
 
