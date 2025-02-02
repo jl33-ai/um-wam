@@ -1,24 +1,33 @@
-# um-wam
-Anonymised, simple and accurate
+<h1 align="center">
+  Univeristy WAM Calculator
+</h1>
 
-**Special features**: 
+<h4 align="center"><a href="https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5P48BUahEgWaQ4ubhFwKJcrvxRmy9cKim3N0Coko" target="_blank">Anonymized, simple and accurate</a>.</h4>
+
+<p align="center">
+  <a href="https://www.reddit.com/r/unimelb/comments/182kxtw/someone_finally_did_it_wam_calculator/">
+    <img src="https://img.shields.io/badge/mau-5k-blue">
+  </a>  
+  <a href="https://www.reddit.com/r/unimelb/comments/182kxtw/someone_finally_did_it_wam_calculator/">
+    <img src="https://img.shields.io/badge/reddit-60k-red">
+  </a>
+</p>
+
+Link to site: [here](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5P48BUahEgWaQ4ubhFwKJcrvxRmy9cKim3N0Coko)
+
+### Features
+- Calculate WAM (weighted average mark)
 - Autofill from screenshot 
-- Infer grades needed for future WAM 
-- Statistics and analytics
-- Exam weighting calculator
+- WAM predictions and interpolation 
+- Graphs and data visualization
 
-# Todo
-- [x] Simple anonymised image 
-- [x] Warning messagae
+### Top contributors:
 
-- [x] Enter number of subjects you have left: 
-- [x] Enter desired wam: 
-- [x] You need to average () 
+<a href="https://github.com/jl33-ai/um-wam/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=jl33-ai/um-wam" alt="contrib.rocks image" />
+</a>
 
-- [x] Someone finally did it. They made a WAM calculator that works
-- [x] Drop feature requests
+### Made with
 
-- [x] with a line break on the bottom
-
-- [x] graph - data vis!
-- [x] An intuitive WAM calculator, with screenshot and extra statistic functionality
+- ![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)
+- ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)

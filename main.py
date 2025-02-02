@@ -42,7 +42,7 @@ def populate_grades(grade_list):
         st.session_state.grades.append({'grade': int(grade), 'credit_points': 12.5})
     if 'upload_widget' in st.session_state:
         st.session_state.upload_widget = False
-    st.experimental_rerun()
+    st.rerun()
 
 def extract_grades(my_upload):
     """ Extracts grades from columnar screenshot and populates the table. """
