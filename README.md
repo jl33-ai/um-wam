@@ -1,9 +1,9 @@
 <h1 align="center">
-  University WAM Calculator
+  WAM Calculator
 </h1>
 
 <h4 align="center"><a href="https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5P48BUahEgWaQ4ubhFwKJcrvxRmy9cKim3N0Coko" target="_blank">
-Anonymized, simple and accurate</a>.</h4>
+University grade calculator that ranks #1 on Google</a>.</h4>
 
 <p align="center">
   <a href="https://www.reddit.com/r/unimelb/comments/182kxtw/someone_finally_did_it_wam_calculator/">
@@ -31,7 +31,9 @@ site: [here](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5
   <img src="https://contrib.rocks/image?repo=jl33-ai/um-wam" alt="contrib.rocks image" />
 </a>
 <br>
+
 ![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)
+
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/justinkhlen)
