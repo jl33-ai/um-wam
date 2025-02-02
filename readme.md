@@ -15,20 +15,23 @@ University grade calculator that ranks #1 on Google</a>.</h4>
 </p>
 
 
-Link to
-site: [here](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5P48BUahEgWaQ4ubhFwKJcrvxRmy9cKim3N0Coko)
+Link to site: [here](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5P48BUahEgWaQ4ubhFwKJcrvxRmy9cKim3N0Coko)
 
 1. Calculate WAM (weighted average mark)
+
    <img width="300" alt="image" src="https://github.com/user-attachments/assets/c413a5e0-be2f-4e24-b8b4-c98fbb41f3e1" />
 
-2. Autofill from screenshot
+3. Autofill from screenshot
+
    <img width="300" alt="image" src="https://github.com/user-attachments/assets/5422bf4a-ed93-410c-8460-ef728c71084f" />
 
 
-3. WAM predictions and interpolation
+5. WAM predictions and interpolation
+
    <img width="300" alt="image" src="https://github.com/user-attachments/assets/3babe0ba-f88c-41d6-a271-d4ba6f3fdc60" />
 
-4. Graphs and data visualization
+7. Graphs and data visualization
+
    <img width="300" alt="image" src="https://github.com/user-attachments/assets/1f7c32a5-91d0-4046-90a3-bfcb4d1dfc62" />
 
 ### Top contributors:
