@@ -10,10 +10,9 @@ def render_sidebar():
     - `g_i` is the grade for subject `i`
     """)
     st.sidebar.markdown("\n\n")
-    st.sidebar.markdown(
-        "See the official [University of Melbourne website](https://students.unimelb.edu.au/your-course/manage-your-course/exams-assessments-and-results/results-and-academic-statements/wam#:~:text=It%20is%20calculated%20progressively%20as,subject%20in%20calculating%20your%20WAM.) for more details.")
-
     st.sidebar.markdown('---')
-    st.sidebar.write("This site is fully anonymous and secure.")
+    st.sidebar.write("This site is completely anonymous and secure.")
+    st.sidebar.write(
+        "This site is no way affiliated with the University of Melbourne. See the [official university website](https://students.unimelb.edu.au/your-course/manage-your-course/exams-assessments-and-results/results-and-academic-statements/wam#:~:text=It%20is%20calculated%20progressively%20as,subject%20in%20calculating%20your%20WAM.) for more details.")
     st.sidebar.markdown("[Feature request & Bug form](https://forms.gle/fHL4pfrdrjcWZeVVA)")
     st.sidebar.markdown('[Made by Justin](https://jl33-ai.github.io/)')
