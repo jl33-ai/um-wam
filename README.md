@@ -6,9 +6,6 @@
 
 <p align="center">
   <a href="https://www.reddit.com/r/unimelb/comments/182kxtw/someone_finally_did_it_wam_calculator/">
-    <img src="https://img.shields.io/badge/mau-5k-blue">
-  </a>  
-  <a href="https://www.reddit.com/r/unimelb/comments/182kxtw/someone_finally_did_it_wam_calculator/">
     <img src="https://img.shields.io/badge/reddit-60k-red">
   </a>
 </p>

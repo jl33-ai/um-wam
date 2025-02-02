@@ -2,3 +2,4 @@ graphics.svg
 .env
 .venv
 .idea
+.streamlit/secrets.toml
