@@ -114,7 +114,7 @@ def render_all_graphs(grades):
     line_graph(grades)
 
 
-def data_visualization():
+def render_charts():
     if st.button('Stats for Nerds'):
         if not len(st.session_state.grades):
             st.write('Please add at least one subject first')

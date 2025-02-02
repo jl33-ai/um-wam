@@ -17,7 +17,7 @@ def calculator(current_wam, num_completed):
     st.markdown("---")
 
 
-def required_grades_calculator():
+def render_required_grades_calculator():
     num_completed = len(st.session_state.grades)
     if st.button('Calculate grades needed for desired WAM'):
         if num_completed:

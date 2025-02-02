@@ -27,7 +27,7 @@ def extract_grades(file):
     return extract_list_from_image(file)
 
 
-def autofill_from_screenshot():
+def render_autofill_from_screenshot():
     # AUTOFILL FROM SCREENSHOT
     def handle_autofill(file):
         if not file:
