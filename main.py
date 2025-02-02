@@ -20,13 +20,17 @@ def populate_grades(grade_list):
     st.rerun()
 
 
-def extract_grades(my_upload):
+def extract_grades(file):
     """ Extracts grades from columnar screenshot and populates the table. """
-    if my_upload is not None:
-        if my_upload.size > MAX_FILE_SIZE_MB:
-            st.error("The uploaded screenshot is too large. Please upload an image smaller than 5MB.")
-        else:
-            return extract_list_from_image(my_upload)
+    if file is None:
+        st.error("No screenshot was uploaded")
+        return
+
+    if file.size > MAX_FILE_SIZE_MB:
+        st.error("The uploaded screenshot is too large. Please upload an image smaller than 5MB.")
+        return
+
+    return extract_list_from_image(file)
 
 
 if 'grades' not in st.session_state:
@@ -116,9 +120,15 @@ st.write('### More tools')
 def handle_autofill(file):
     if not file:
         st.error('Please upload a file first')
-    else:
-        grades_list = extract_grades(file)
-        populate_grades(grades_list)
+        return
+
+    grades_list = extract_grades(file)
+
+    if not grades_list:
+        st.warning("Couldn't find any grades in the provided screenshot")
+        return
+
+    populate_grades(grades_list)
 
 
 if st.button('Autofill from Screenshot'):

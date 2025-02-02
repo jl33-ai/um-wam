@@ -20,12 +20,33 @@ def do_request(file_stream):
         files={file_stream.name: file_stream},
         data=payload,
     )
+
     return response.json()
 
 
-def extract_list_from_image(my_upload):
-    result = do_request(my_upload)
-    ocr_text = result.get('ParsedResults')[0].get('ParsedText')
+def extract_list_from_image(file):
+    try:
+        result = do_request(file)
+    except Exception as e:
+        return []
 
-    grade_list = to_list(ocr_text)
-    return grade_list
+    if not result:
+        return []
+
+    try:
+        parsed_results = result.get('ParsedResults')
+        if not parsed_results or not isinstance(parsed_results, list):
+            return []
+
+        first_result = parsed_results[0]
+        if not isinstance(first_result, dict):
+            return []
+
+        ocr_text = first_result.get('ParsedText')
+        if not ocr_text or not isinstance(ocr_text, str):
+            return []
+
+        return to_list(ocr_text)
+
+    except (AttributeError, IndexError, KeyError) as e:
+        return []
