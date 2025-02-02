@@ -46,7 +46,7 @@ def render_autofill_from_screenshot():
         st.session_state.show_auto_fill_from_screenshot = True
     if st.session_state.show_auto_fill_from_screenshot:
         file = st.file_uploader("Upload a screenshot of your grades", type=["png", "jpg", "jpeg"])
-        if st.button('Autofill'):
+        if st.button('Submit', type="primary"):
             handle_autofill(file)
 
         example_col1, example_col2 = st.columns([1, 2])
