@@ -3,7 +3,7 @@ import streamlit as st
 
 def render_grades():
     """ Render grade and credit points inputs """
-    col1_grades, col2_grades = st.columns(2)
+    col1_grades, col2_grades = st.columns([2, 1])
 
     for i, grade_info in enumerate(st.session_state['grades']):
         with col1_grades:

@@ -19,7 +19,7 @@ def calculator(current_wam, num_completed):
 
 def render_required_grades_calculator():
     num_completed = len(st.session_state.grades)
-    if st.button('Calculate grades needed for desired WAM'):
+    if st.button('Calculate grades needed for desired WAM', icon='🧮'):
         if num_completed:
             st.session_state.show_required_grades_calculator = True
         else:

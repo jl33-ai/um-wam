@@ -42,7 +42,7 @@ def render_autofill_from_screenshot():
 
         populate_grades(grades_list)
 
-    if st.button('Autofill from Screenshot'):
+    if st.button('Autofill from Screenshot', icon='📸'):
         st.session_state.show_auto_fill_from_screenshot = True
     if st.session_state.show_auto_fill_from_screenshot:
         file = st.file_uploader("Upload a screenshot of your grades", type=["png", "jpg", "jpeg"])

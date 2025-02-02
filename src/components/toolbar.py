@@ -18,10 +18,10 @@ def _handle_add_pass_fail_subject():
 
 def render_toolbar():
     with st.container():
-        btn_add_subject, btn_remove_subject, btn_add_pass_fail_subject = st.columns([1, 1, 1])
+        btn_add_subject, btn_remove_subject, btn_add_pass_fail_subject = st.columns([1, 1, 1], gap="small")
 
         with btn_add_subject:
-            st.button('Add Subject', on_click=_handle_add_grade)
+            st.button('Add Subject', on_click=_handle_add_grade, type="primary")
 
         with btn_remove_subject:
             st.button('Add Pass/Fail Subject', on_click=_handle_add_pass_fail_subject)

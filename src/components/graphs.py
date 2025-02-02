@@ -115,7 +115,7 @@ def render_all_graphs(grades):
 
 
 def render_charts():
-    if st.button('Stats for Nerds'):
+    if st.button('Stats for Nerds', icon='📊'):
         if not len(st.session_state.grades):
             st.write('Please add at least one subject first')
         else:
