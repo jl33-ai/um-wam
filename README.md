@@ -27,10 +27,5 @@ site: [here](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5
   <img src="https://contrib.rocks/image?repo=jl33-ai/um-wam" alt="contrib.rocks image" />
 </a>
 
-[//]: # (### Made with)
-
-[//]: # ()
-
-[//]: # (- ![Streamlit]&#40;https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white&#41;)
-
-[//]: # (- ![Python]&#40;https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54&#41;)
+![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)

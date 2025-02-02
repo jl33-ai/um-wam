@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_echarts import st_echarts
 
-from utils.math import calculate_wam, get_letter_grade_freq
+from src.utils.math import calculate_wam, get_letter_grade_freq
 
 
 def line_graph(grades):
@@ -112,3 +112,11 @@ def radar_graph(grades):
 def render_all_graphs(grades):
     radar_graph(grades)
     line_graph(grades)
+
+
+def data_visualization():
+    if st.button('Stats for Nerds'):
+        if not len(st.session_state.grades):
+            st.write('Please add at least one subject first')
+        else:
+            render_all_graphs(st.session_state.grades)

@@ -1,7 +1,7 @@
 import requests
 
-from utils.config import get_secret
-from utils.formatting import to_list
+from src.config import get_secret
+from src.utils.formatting import to_list
 
 API_URL = 'https://api.ocr.space/parse/image'
 
