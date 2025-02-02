@@ -149,7 +149,7 @@ if st.session_state.upload_widget:
         st.write("2. Your screenshot should include only the `marks` column as shown")
         st.write("3. Warning: Autofilling will **overwrite all current grades**")
     with example_col2:
-        st.image('demo4.gif')
+        st.image('static/example_upload_screenshot.gif')
 
 
 # CALCULATE GRADES NEEDED FOR DESIRED WAM
