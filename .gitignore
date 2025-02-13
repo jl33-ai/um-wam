@@ -3,3 +3,4 @@ graphics.svg
 .venv
 .idea
 .streamlit/secrets.toml
+.vscode
