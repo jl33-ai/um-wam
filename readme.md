@@ -14,6 +14,7 @@ University grade calculator that ranks #1 on Google</a></h4>
   </a>
 </p>
 
+## Guide
 
 Link to site: [here](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5P48BUahEgWaQ4ubhFwKJcrvxRmy9cKim3N0Coko)
 
@@ -62,7 +63,7 @@ In the rare case that you would like to contribute to this abomination:
 - [x] graph - data vis
 - [x] An intuitive WAM calculator, with screenshot and extra statistic functionality
 
-### Top contributors:
+## Top contributors
 
 <a href="https://github.com/jl33-ai/um-wam/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=jl33-ai/um-wam" alt="contrib.rocks image" />
