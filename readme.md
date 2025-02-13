@@ -36,10 +36,10 @@ Link to site: [here](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm
 
 ## Contribution Guide
 
-in the rare case that you would like to contribute to this abomination:
+In the rare case that you would like to contribute to this abomination:
 
-1. raise a PR
-2. will merge if good
+1. Submit a PR
+2. Will merge if good
 
 ## Checklist
 
