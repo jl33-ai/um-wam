@@ -16,13 +16,11 @@ University grade calculator that ranks #1 on Google</a></h4>
 
 ## Guide
 
-Link to site: [here](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5P48BUahEgWaQ4ubhFwKJcrvxRmy9cKim3N0Coko)
-
 1. Calculate WAM (weighted average mark)
 
    <img width="300" alt="image" src="https://github.com/user-attachments/assets/c413a5e0-be2f-4e24-b8b4-c98fbb41f3e1" />
 
-3. Autofill from screenshot
+2. Autofill from screenshot
 
    <img width="300" alt="image" src="https://github.com/user-attachments/assets/5422bf4a-ed93-410c-8460-ef728c71084f" />
 
