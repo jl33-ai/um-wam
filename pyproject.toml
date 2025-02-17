@@ -1,0 +1,13 @@
+[project]
+name = "um-wam"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "openai>=1.63.0",
+    "requests>=2.32.3",
+    "streamlit>=1.42.0",
+    "streamlit-analytics>=0.4.1",
+    "streamlit-echarts>=0.4.0",
+]

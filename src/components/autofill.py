@@ -1,7 +1,7 @@
 import streamlit as st
 
 from src.config import MAX_FILE_SIZE_MB
-from src.services.ocr import extract_list_from_image
+from src.ocr.index import get_list_from_image
 
 
 def populate_grades(grade_list):
@@ -24,7 +24,7 @@ def extract_grades(file):
         st.error("The uploaded screenshot is too large. Please upload an image smaller than 5MB.")
         return
 
-    return extract_list_from_image(file)
+    return get_list_from_image(file)
 
 
 def render_autofill_from_screenshot():
