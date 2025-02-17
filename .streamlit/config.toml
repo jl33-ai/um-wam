@@ -1,0 +1,5 @@
+[client]
+showErrorDetails = "none"
+
+[logger]
+level = "info"
