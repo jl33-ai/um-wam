@@ -5,6 +5,7 @@ from streamlit.runtime.uploaded_file_manager import UploadedFile
 from src.ocr.ocrspace import OCRSpace
 from src.ocr.openai import OCROpenAI
 from src.utils.formatting import to_list
+from src.utils.logging import logger
 
 
 def image_to_text(uploaded_file: UploadedFile) -> str:
@@ -15,8 +16,8 @@ def image_to_text(uploaded_file: UploadedFile) -> str:
             result = ocr.parse(file=uploaded_file)
             if result and len(result):
                 return result
-        except:
-            pass
+        except Exception as e:
+            logger().info(f"OCR failed for {ocr.__name__}: {str(e)}")
 
     return ""
 
