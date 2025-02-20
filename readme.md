@@ -15,7 +15,9 @@ University grade calculator that ranks #1 on Google</a></h4>
 </p>
 
 
-Link to site: [here](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5P48BUahEgWaQ4ubhFwKJcrvxRmy9cKim3N0Coko)
+[Visit the site](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5P48BUahEgWaQ4ubhFwKJcrvxRmy9cKim3N0Coko)
+
+### Features
 
 1. Calculate WAM (weighted average mark)
 
@@ -34,7 +36,7 @@ Link to site: [here](https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm
 
    <img width="300" alt="image" src="https://github.com/user-attachments/assets/1f7c32a5-91d0-4046-90a3-bfcb4d1dfc62" />
 
-### Top contributors:
+### Top contributors
 
 <a href="https://github.com/jl33-ai/um-wam/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=jl33-ai/um-wam" alt="contrib.rocks image" />
