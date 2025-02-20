@@ -3,16 +3,30 @@ import streamlit as st
 
 def render_sidebar():
     sidebar_what_is_wam()
-
     sidebar_how_is_wam_calculated()
-
     sidebar_difference_wam_gpa()
-
+    sidebar_frequently_asked_questions()
     sidebar_wam_formula()
-
     sidebar_about()
-
     sidebar_more()
+
+
+def sidebar_frequently_asked_questions():
+    st.sidebar.markdown("### FAQs About WAM Calculation")
+    st.sidebar.markdown("""
+            **How often should I calculate my WAM?**  
+            We recommend checking your WAM after each semester to track your academic progress.
+
+            **Do failed subjects affect my WAM?**  
+            Yes, failed subjects are included in WAM calculations, typically counting as a mark of zero.
+
+            **Is WAM calculated the same way at all universities?**  
+            While the basic principle is similar, specific calculations may vary between institutions.
+            Check your university's specific WAM policies.
+
+            **Can I calculate my predicted WAM?**  
+            Yes, use our calculator to input potential grades and see how they might affect your overall WAM.""")
+    st.sidebar.markdown('---')
 
 
 def sidebar_more():
@@ -21,6 +35,7 @@ def sidebar_more():
     st.sidebar.markdown(
         "[Contribute to the source code](https://github.com/jl33-ai/um-wam/blob/main/docs/contributing.md)")
     st.sidebar.markdown('[Made by Justin](https://jl33-ai.github.io/)')
+    st.sidebar.markdown('---')
 
 
 def sidebar_about():
