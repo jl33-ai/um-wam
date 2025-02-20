@@ -6,7 +6,7 @@ from streamlit.runtime.uploaded_file_manager import UploadedFile
 class OCRService(ABC):
     @staticmethod
     @abstractmethod
-    def _request(file: UploadedFile) -> dict | None:
+    def _request(file: UploadedFile) -> dict:
         pass
 
     @staticmethod
