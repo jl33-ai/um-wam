@@ -7,4 +7,4 @@ def render_head():
         initial_sidebar_state="collapsed",
         page_icon="🎓"
     )
-    st.write("## Calculate Weighted Average Mark (WAM)")
+    st.header("Calculate Weighted Average Mark (WAM)")
