@@ -3,7 +3,7 @@ um-wam
 </h1>
 
 <h4 align="center"><a href="https://wam-calculator.streamlit.app/?fbclid=IwAR1K9ixVHdMm1wE9KUK5P48BUahEgWaQ4ubhFwKJcrvxRmy9cKim3N0Coko" target="_blank">
-University grade calculator that ranks #1 on Google</a></h4>
+University grade calculator that ranks #2 on Google</a></h4>
 
 <p align="center">
   <a href="https://www.reddit.com/r/unimelb/comments/182kxtw/someone_finally_did_it_wam_calculator/">
